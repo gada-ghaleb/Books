@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Books</title>
+     <!--Google font-->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600&display=swap"
+          rel="stylesheet">
+     <!--Bootstrap-->
+     <link rel="stylesheet" href="./assets/styles/bootstrap.min.css">
+     <!--Main css-->
+     <link rel="stylesheet" href="./assets/styles/main.css">
+     <!--Axios-->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+     <nav class="navbar ">
+          <div class="container ">
+               <div class=" w-100 d-flex mt-3" action="/" role="search">
+                    <input id="search_data" class="form-control me-2" type="text" placeholder="Search for category"
+                         aria-label="Search">
+                    <button id="get-button">Search</button>
+               </div>
+          </div>
+     </nav>
+     <div class="d-flex justify-content-center">
+          <div id="loading" class="spinner-border" role="status" style="display:none;">
+          </div>
+     </div>
+     <div id="show-data" class="container">
+          <div class="contets">
+               <h1 class="text-center mt-4">Books</h1>
+               <img src="./assets/images/img.png" class="card-img" alt="...">
+          </div>
+     </div>
+     <!--Main.js-->
+     <script src="./dist/main.js"></script>
+</body>
+
+</html>

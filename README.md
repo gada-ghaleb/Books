@@ -43,16 +43,24 @@ Questo progetto utilizza HTML, CSS, JavaScript e Bootstrap per creare un'applica
 
  
 ## Funzioni di ricerca e descrizione nell'applicazione di libreria
-- Il file principale dell'applicazione, index.js, importa due funzioni da due file script diversi: `search` e `description`. La funzione `search viene assegnata al click del bottone con l'ID "get-button" tramite un evento listener. La funzione description viene poi richiamata alla fine del file. Queste funzioni forniscono la logica dell'applicazione e sono responsabili rispettivamente di effettuare la ricerca dei libri e di visualizzare la descrizione dei risultati della ricerca.
+- Il codice importa due funzioni, "search" e "description", da due file script diversi. La funzione "search" viene richiamata quando l'utente preme il tasto "Enter" nell'input con l'ID "search_data" o quando l'utente fa clic sul bottone "get-button". In entrambi i casi, la funzione "search" viene chiamata per eseguire la ricerca dei libri. La funzione "description" viene invece richiamata alla fine del file e viene utilizzata per visualizzare la descrizione dei risultati della ricerca.
 
 ```javaScript
 import search from '../assets/scripts/search';
 import description from '../assets/scripts/description';
 
-document.getElementById('get-button').addEventListener('click', search);
+const input = document.getElementById('search_data');
+input.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    search();
+  }
+});
+
+const button = document.getElementById('get-button');
+button.addEventListener('click', search);
 
 description();
-};
 ```
 - Questa funzione cerca libri in base all'input dell'utente e visualizza i risultati con informazioni sull'autore. Se si verifica un errore, viene visualizzato un messaggio di errore.
 ```javaScript
@@ -60,7 +68,8 @@ export default function search() {....
  try {
        axios.get(`https://openlibrary.org/subjects/${input}.json`)
          .then((response) => {....
- catch (error) {....      
+ .catch (error) {....  
+
 ```
  
 - Questa funzione ottiene la descrizione di un libro dall'API utilizzando un codice dall'URL e la visualizza. In caso di errore, viene visualizzato un messaggio di errore. 
@@ -69,7 +78,7 @@ export default function description() {....
   try {
          axios.get(`https://openlibrary.org${code}.json`)
            .then((response) => {....
-  catch (error) {.....         
+  .catch (error) {.....         
 
 ```
 

@@ -35,7 +35,7 @@ Questo progetto utilizza HTML, CSS, JavaScript e Bootstrap per creare un'applica
   - index.html/ : il file principale dell'applicazione, che contiene il link per accedere ai file di assets e utilizza la libreria Axios per effettuare richieste HTTP.
   - details.html/ : un file HTML supplementare utilizzato per mostrare i dettagli di un libro.
   
- - src/ 
+  - src/ 
      - index.js/ : contiene i file principali dell'applicazione
 
 

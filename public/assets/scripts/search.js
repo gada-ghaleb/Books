@@ -16,9 +16,10 @@ export default function search() {
 
   axios.get(`https://openlibrary.org/subjects/${input}.json`)
     .then((response) => {
-      const category = response.data.work_count;
+     const category = response.data.works;
+      const workCount = response.data.work_count;
 
-      if (category === 0) {
+      if (workCount === 0) {
         showData.innerHTML = 'La categoria di ricerca non ha prodotto alcun risultato.';
       } else {
         showData.innerHTML = '';

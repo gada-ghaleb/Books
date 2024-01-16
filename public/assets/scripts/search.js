@@ -16,7 +16,7 @@ export default function search() {
 
   axios.get(`https://openlibrary.org/subjects/${input}.json`)
     .then((response) => {
-      const category = response.data.works;
+     const category = response.data.works;
       const workCount = response.data.work_count;
 
       if (workCount === 0) {
